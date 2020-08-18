@@ -13,12 +13,24 @@ class BooksController < ApplicationController
 
   def create
     @book = Book.new(book_params)
-    @book.save
-    redirect_to books_path
+    if @book.user = current_user
+      @book.save
+      redirect_to books_path
+    else
+      redirect_to new_user_session_path
+    end
   end
 
   def edit
     @book = Book.find(params[:id])
+  end
+
+  def destroy
+    @book = Book.find(params[:id])
+    if @book.user = current_user
+      @book.destroy
+      redirect_to books_path
+    end
   end
 
   def my_books

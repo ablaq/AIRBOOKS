@@ -1,11 +1,15 @@
 <h1>Share your books</h1>
 <ul>
-    <% @books.each do |book| %>
+  <% @books.each do |book| %>
 
     <%= link_to book_path(book.id) do %>
-  <li> <%= book.title %> </li>
-  <li> <%= book.author%> </li>
-
+      <li> <%= book.title %> - <%= book.author%> 
+      <% if @user = current_user %>
+        - <%= link_to "Delete this book",
+            book_path(book),
+            method: :delete,
+            data: { confirm: "Are you sure?" }%> </li>
+      <% end  %>
     <% end  %>
   <% end  %>
 
