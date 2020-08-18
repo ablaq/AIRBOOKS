@@ -11,16 +11,32 @@ class RentalsController < ApplicationController
     @rental.book = @book
     @rental.user = current_user
     @rental.status = "Pending"
-    @rental.save!
+    @rental.save
     redirect_to my_rentals_path
 
   end
 
   def edit
+    @rental = Rental.find(params[:id])
+    @book = Book.find(params[:book_id])
+  end
+
+  def update
+    @rental = Rental.find(params[:id])
+    @rental.update(rental_params)
+    redirect_to my_rentals_path
   end
 
   def my_rentals
     @rentals = Rental.all
+  end
+
+  def destroy
+    @rental = Rental.find(params[:id])
+    if @rental.user = current_user
+      @rental.destroy
+      redirect_to my_rentals_path
+    end
   end
 
   private

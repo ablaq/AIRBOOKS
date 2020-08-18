@@ -16,3 +16,5 @@
     method: :delete,
     data: { confirm: "Are you sure?" }%> </li>
 <% end %>
+
+<%= link_to "Rent this book", new_book_rental_path(@book.id) %>

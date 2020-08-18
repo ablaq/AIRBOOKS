@@ -1,7 +1,7 @@
 <h1><%= @book.title %></h1>
 <p><%= @book.author %></p>
 <%= simple_form_for [ @book, @rental ] do |f| %>
-<%= f.input :start_date, as: :date %>
+<%= f.input :start_date, as: :date%>
 <%= f.input :weeks, collection: (1..10) %>
 <%= f.submit %>
 <% end %>

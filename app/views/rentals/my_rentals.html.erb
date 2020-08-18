@@ -3,7 +3,7 @@
   <% @rentals.each do |rental| %>
     <% if rental.user == current_user %>
 
-        <li> <%= rental.book[:title] %> - <%= rental.book[:author]%> </li>
+        <li> <%= rental.book[:title] %> - <%= rental.book[:author]%> - <%= rental.start_date %> - <%= rental.start_date + (rental.weeks * 7) %> - <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental) %></li>
 
     <% end  %>
   <% end  %>
