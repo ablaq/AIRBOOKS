@@ -1,0 +1,10 @@
+<h1>My rented books</h1>
+<ul>
+  <% @rentals.each do |rental| %>
+    <% if rental.user == current_user %>
+
+        <li> <%= rental.book[:title] %> - <%= rental.book[:author]%> </li>
+
+    <% end  %>
+  <% end  %>
+</ul>

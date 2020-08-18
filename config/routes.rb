@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'rentals/new'
+  get 'rentals/edit'
+  get 'rentals/my_rentals'
   devise_for :users
   root to: 'pages#home'
   get "my_books", to: "books#my_books", as: :my_books
