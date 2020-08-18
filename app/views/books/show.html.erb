@@ -6,4 +6,13 @@
 <p><%= @book.year %></p>
 <p><%= @book.summary %></p>
 
+<% if @book.user == current_user %>
+  <%= link_to "Edit book", edit_book_path  %>
+<% end %>
 
+<% if @book.user == current_user %>
+  <%= link_to "Delete this book",
+    book_path(@book),
+    method: :delete,
+    data: { confirm: "Are you sure?" }%> </li>
+<% end %>

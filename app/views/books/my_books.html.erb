@@ -1,2 +1,11 @@
 <h1>Books#my_books</h1>
 <p>Find me in app/views/books/my_books.html.erb</p>
+<ul>
+  <% @books.each do |book| %>
+    <% if book.user == current_user %>
+      <%= link_to book_path(book.id) do %>
+        <li> <%= book.title %> - <%= book.author%> 
+      <% end  %>
+    <% end  %>
+  <% end  %>
+</ul>
