@@ -1,11 +1,13 @@
-<h1>Add a new book</h1>
-<%= simple_form_for @book do |f| %>
-<%= f.input :title %>
-<%= f.input :author %>
-<%= f.input :language %>
-<%= f.input :subject %>
-<%= f.input :summary, as: :text %>
-<%= f.input :year %>
-<%= f.input :pages %>
-<%= f.submit %>
-<% end %>
+<div class="container">
+  <h1>Add a new book</h1>
+  <%= simple_form_for @book do |f| %>
+  <%= f.input :title %>
+  <%= f.input :author %>
+  <%= f.input :language %>
+  <%= f.input :subject %>
+  <%= f.input :summary, as: :text %>
+  <%= f.input :year %>
+  <%= f.input :pages %>
+  <%= f.submit class: "btn btn-primary" %>
+  <% end %>
+</div>
