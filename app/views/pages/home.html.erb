@@ -1,2 +1,12 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container-fluid p-5" style=" height: 1000px; padding: 20px; margin: 0; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'home.jpg' %>); background-size: cover">
+
+<div class="container p-5"><div>
+  <h1>Welcome to boooq</h1>
+  <p id="home">The best webapp to rent and share books</p>
+</div>
+
+  <input class="form-control " id="anythingSearch" type="text" placeholder="Look for a book, a city, an author">
+  <%= link_to "Go for it!", books_path, class: "btn btn-primary mt-3" %>
+  <div id="myDIV">
+
+</div>
