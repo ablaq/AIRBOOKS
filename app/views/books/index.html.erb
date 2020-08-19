@@ -1,10 +1,12 @@
+
 <div class="card-category" style=" height: 250px; padding: 20px; margin: 0; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'books-bg.jpg' %>); background-size: cover">
 
 <h1>Share your books</h1>
 </div>
- <% @books.each do |book| %>
+
 <div class="card-product">
-  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+  <% @books.each do |book| %>
+  <%= image_tag "four-hour" %>
   <div class="card-product-infos">
     <%= link_to book_path(book.id) do %>
     <h2><%= book.title %></h2>
@@ -13,6 +15,9 @@
   </div>
   <% end  %>
 </div>
-
+<div>
 <%= link_to "Add a new book", new_book_path, class: "btn btn-ghost" %>
+
+</div>
+
 
