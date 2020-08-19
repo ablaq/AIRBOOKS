@@ -13,7 +13,6 @@ class RentalsController < ApplicationController
     @rental.status = "Pending"
     @rental.save
     redirect_to my_rentals_path
-
   end
 
   def edit
