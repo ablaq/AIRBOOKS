@@ -1,2 +1,22 @@
-<h1>Books#show</h1>
-<p>Find me in app/views/books/show.html.erb</p>
+<h1><%= @book.title %></h1>
+<p><%= @book.author %></p>
+<p><%= @book.language %></p>
+<p><%= @book.subject %></p>
+<p><%= @book.pages %></p>
+<p><%= @book.year %></p>
+<p><%= @book.summary %></p>
+
+<% if @book.user == current_user %>
+  <%= link_to "Edit book", edit_book_path  %>
+<% end %>
+
+<% if @book.user == current_user %>
+  <%= link_to "Delete this book",
+    book_path(@book),
+    method: :delete,
+    data: { confirm: "Are you sure?" }%> </li>
+<% end %>
+
+<%= link_to "Back to Library", books_path %>
+
+<%= link_to "Rent this book", new_book_rental_path(@book.id) %>

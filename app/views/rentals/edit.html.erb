@@ -1,0 +1,12 @@
+<h1><%= @book.title %></h1>
+<p><%= @book.author %></p>
+<%= simple_form_for [ @book, @rental ] do |f| %>
+<%= f.input :start_date, as: :date %>
+<%= f.input :weeks, collection: (1..10) %>
+<p>End date: <%= @rental.start_date + (@rental.weeks * 7) %></p>
+<%= f.submit %>
+<%= link_to "Delete this rental",
+    book_rental_path(@rental.id),
+    method: :delete,  
+    data: { confirm: "Are you sure?" }%>
+<% end %>
