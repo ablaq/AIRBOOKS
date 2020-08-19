@@ -4,7 +4,7 @@
 <h1>Share your books</h1>
 </div>
 
-<div class="card-product">
+<div class="card-product d-flex justify-content-between">
   <% @books.each do |book| %>
   <%= image_tag "four-hour.jpg" %>
   <div class="card-product-infos">
@@ -15,7 +15,7 @@
   </div>
   <% end  %>
 </div>
-<div>
+<div style= "margin-top: 20px">
 <%= link_to "Add a new book", new_book_path, class: "btn btn-ghost" %>
 
 </div>
