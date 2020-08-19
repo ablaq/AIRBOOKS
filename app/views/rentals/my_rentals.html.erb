@@ -1,10 +1,15 @@
 <h1>My rented books</h1>
-<ul>
-  <% @rentals.each do |rental| %>
-    <% if rental.user == current_user %>
 
-        <li> <%= rental.book[:title] %> - <%= rental.book[:author]%> - <%= rental.start_date %> - <%= rental.end_date %> - <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental) %></li>
-
-    <% end  %>
+<% @rentals.each do |rental| %>
+  <% if rental.user == current_user %>
+    <h2 class="mt-3"><%= rental.book[:title] %></h2>
+    <p><%= rental.book[:author]%> </p>
+    <p><%= rental.start_date %></p>
+    <p><%= rental.end_date %></p>
+    <p>Status:<%= rental.status %></p>
+    <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental), class:"btn btn-ghost" %> <%= link_to "Delete this rental", 
+    book_rental_path(rental.book, rental),
+    method: :delete,
+    class:"btn btn-ghost"%>
   <% end  %>
-</ul>
+<% end  %>
