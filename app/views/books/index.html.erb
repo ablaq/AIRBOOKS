@@ -6,7 +6,7 @@
 
 <div class="card-product">
   <% @books.each do |book| %>
-  <%= image_tag "four-hour" %>
+  <%= image_tag "four-hour.jpg" %>
   <div class="card-product-infos">
     <%= link_to book_path(book.id) do %>
     <h2><%= book.title %></h2>
