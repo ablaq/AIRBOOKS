@@ -1,9 +1,9 @@
-<h1>Books#my_books</h1>
+<h1>My books</h1>
 <ul>
   <% @books.each do |book| %>
     <% if book.user == current_user %>
       <%= link_to book_path(book.id) do %>
-        <li> <%= book.title %> - <%= book.author%>
+        <li> <%= book.title %> - <%= book.author%> - Status: Available</li>
       <% end  %>
     <% end  %>
   <% end  %>
