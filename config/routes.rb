@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   end
   get "rentals", to: "rentals#index"
   get "my_rentals", to: "rentals#my_rentals", as: :my_rentals
+  patch "rental/:id/validate", to: "rentals#validate", as: :validate_rental
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
