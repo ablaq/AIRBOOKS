@@ -10,3 +10,11 @@ user = User.create!(user_name: "ablaq", email: "al@airbooks.com", password: "123
 Book.create!(user: user, title: "la semaine de 4 heures", author: "Tim Ferris", language: "Fr", subject: "personal development", pages: 250)
 Book.create!(user: user, title: "Tools of Titans", author: "Tim Ferris", language: "En", subject: "personal development", pages: 530)
 Book.create!(user: user, title: "Four hours body", author: "Tim Ferris", language: "En", subject: "personal development", pages: 450)
+require 'json'
+require 'open-uri'
+
+url = 'https://api.github.com/users/ssaunier'
+user_serialized = open(url).read
+user = JSON.parse(user_serialized)
+
+puts "#{user['name']} - #{user['bio']}"
