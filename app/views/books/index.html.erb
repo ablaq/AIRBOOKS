@@ -2,6 +2,15 @@
 <div class="card-category" style=" height: 250px; padding: 20px; margin: 0; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'books-bg.jpg' %>); background-size: cover">
 
 <h1>Share your books</h1>
+
+<%= form_tag books_path, id: "search_form", method: :get do %>
+    <%= text_field_tag :global_search,
+    params[:global_search],
+    class: "form-control",
+    placeholder: "Find a book" %>
+    <%= submit_tag "Got for it", class: "btn btn-primary", form: "search_form"  %>
+  <% end %>
+
 </div>
 
 <div class="card-product d-flex justify-content-between">
@@ -19,5 +28,8 @@
 <%= link_to "Add a new book", new_book_path, class: "btn btn-ghost" %>
 
 </div>
+
+
+
 
 

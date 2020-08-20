@@ -1,6 +1,11 @@
 class BooksController < ApplicationController
   def index
-    @books = Book.all
+     if params[:global_search].present?
+      @books = Book.global_search(params[:global_search])
+    else
+      @books = Book.all
+    end
+
   end
 
   def show
@@ -40,7 +45,7 @@ class BooksController < ApplicationController
   end
 
   def my_books
-    @books = Book.all    
+    @books = Book.all
   end
 
   private
