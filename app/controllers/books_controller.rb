@@ -46,6 +46,7 @@ class BooksController < ApplicationController
 
   def my_books
     @books = Book.all
+    @rentals = Rental.all
   end
 
   private

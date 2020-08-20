@@ -7,6 +7,10 @@
     <p><%= rental.start_date %></p>
     <p><%= rental.end_date %></p>
     <p>Status:<%= rental.status %></p>
+    <% if rental.status == "Accepted" %>
+      <% user_mail = rental.book.user.email %>
+      <div id="contact-owner" class="btn btn-ghost"><a href="mailto:<%= user_mail %>?subject=Hi! I'd like to pick up the book!">Contact owner</a></div>
+    <% end %>
     <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental), class:"btn btn-ghost" %> <%= link_to "Delete this rental", 
     book_rental_path(rental.book, rental),
     method: :delete,

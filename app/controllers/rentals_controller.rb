@@ -26,6 +26,12 @@ class RentalsController < ApplicationController
     redirect_to my_rentals_path
   end
 
+  def validate
+    @rental = Rental.find(params[:id])
+    @rental.update!(status: params[:commit])
+    redirect_to my_books_path
+  end
+
   def my_rentals
     @rentals = Rental.all
   end
