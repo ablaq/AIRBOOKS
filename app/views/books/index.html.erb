@@ -1,35 +1,43 @@
 
-<div class="card-category" style=" height: 250px; padding: 20px; margin: 0; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= image_path 'books-bg.jpg' %>); background-size: cover">
-
-<h1>Share your books</h1>
-
-<%= form_tag books_path, id: "search_form", method: :get do %>
-    <%= text_field_tag :global_search,
-    params[:global_search],
-    class: "form-control",
-    placeholder: "Find a book" %>
-    <%= submit_tag "Got for it", class: "btn btn-primary", form: "search_form"  %>
-  <% end %>
+  <div class="banner" style="height: 400px; padding: 20px; margin: 0; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'library.jpg' %>); background-size: cover";>
+    <div class="container">
+      <h1 style="padding-top: 100px">Share your books</h1>
+      <div style ="padding-top-bottom: 10px;">
+      <%= form_tag books_path, id: "search_form", method: :get do %>
+      <%= text_field_tag :global_search,
+      params[:global_search],
+      class: "form-control",
+      placeholder: "Find a book" %>
+      <div style= "margin-top: 10px">
+      <%= submit_tag "Got for it", class: "btn btn-outline-light", form: "search_form" %>
+    </div>
+    <% end %>
+    <div style= "margin-top: 20px">
+  <%= link_to "Add a new book", new_book_path, class: "btn btn-outline-light" %>
 
 </div>
 
-<div class="card-product d-flex justify-content-between">
-  <% @books.each do |book| %>
-  <%= image_tag "four-hour.jpg" %>
-  <div class="card-product-infos">
-    <%= link_to book_path(book.id) do %>
-    <h2><%= book.title %></h2>
-    <p><%= book.author%></p>
-    <% end  %>
+    </div>
+    </div>
   </div>
-  <% end  %>
+
+<div class="container" style= "margin-bottom: 50px;">
+  <div class="row">
+  <% @books.each do |book| %>
+    <div class="col-4">
+      <div class="card align-items mt-4 card-extra" style="width: 18rem;">
+          <% if book.photo.attached?%>
+            <%= cl_image_tag book.photo.key, height: 300, width: 287 %>
+          <% else %>
+            <%= image_tag "four-hour.jpg", height: 300, width: 287 %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= book.title %></h5>
+            <p class="card-text"><%= book.author%></p>
+            <%= link_to "view details",book_path(book.id), class: "btn btn-outline-dark" %>
+          </div>
+      </div>
+    </div>
+ <% end %>
+  </div>
 </div>
-<div style= "margin-top: 20px">
-<%= link_to "Add a new book", new_book_path, class: "btn btn-ghost" %>
-
-</div>
-
-
-
-
-

@@ -1,19 +1,45 @@
 <h1>My rented books</h1>
 
-<% @rentals.each do |rental| %>
-  <% if rental.user == current_user %>
-    <h2 class="mt-3"><%= rental.book[:title] %></h2>
-    <p><%= rental.book[:author]%> </p>
-    <p><%= rental.start_date %></p>
-    <p><%= rental.end_date %></p>
-    <p>Status:<%= rental.status %></p>
-    <% if rental.status == "Accepted" %>
-      <% user_mail = rental.book.user.email %>
-      <div id="contact-owner" class="btn btn-ghost"><a href="mailto:<%= user_mail %>?subject=Hi! I'd like to pick up the book!">Contact owner</a></div>
-    <% end %>
-    <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental), class:"btn btn-ghost" %> <%= link_to "Delete this rental", 
-    book_rental_path(rental.book, rental),
-    method: :delete,
-    class:"btn btn-ghost"%>
-  <% end  %>
-<% end  %>
+<div class="container "style= "margin-bottom: 50px;">
+  <div class="row ">
+    <% @rentals.each do |rental| %>
+    <% if rental.user == current_user %>
+    <div class="col-4">
+      <div class="card align-items mt-4 card-extra" style="width: 18rem;">
+          <% if rental.book.photo.attached?%>
+            <%= cl_image_tag rental.book.photo.key, height: 300, width: 287 %>
+          <% else %>
+            <%= image_tag "four-hour.jpg", height: 300, width: 287 %>
+          <% end %>
+          <div class="card-body">
+            <h5 class="card-title"><%= rental.book.title%></h5>
+            <p class="card-text"><%= rental.start_date %> - <%= rental.end_date %></p>
+            <h2 class="mt-3"><%= rental.book[:title] %></h2>
+            <p>Status:
+              <% if rental.status == "Pending"%>
+                <button class="btn btn-warning"><%= rental.status %></button>
+              <% elsif rental.status == "Accepted"%>
+                <button class="btn btn-success"><%= rental.status %></button>
+              <% elsif rental.status == "Rejected"%>
+                <button class="btn btn-danger"><%= rental.status %></button>
+              <% end %>
+            </p>
+            <% if rental.status == "Accepted" %>
+              <% user_mail = rental.book.user.email %>
+              <div id="contact-owner" class="btn btn-outline-dark"><a style="text-decoration: none ; color: black;" href="mailto:<%= user_mail %>?subject=Hi! I'd like to pick up the book!">Contact owner</a></div>
+            <% end %>
+            <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental), class:"btn btn-outline-dark" %> <%= link_to "Delete this rental",
+            book_rental_path(rental.book, rental),
+            method: :delete,
+            class:"btn btn-outline-dark"%>
+          </div>
+        </div>
+    </div>
+          <% end  %>
+
+        <% end %>
+
+  </div>
+
+</div>
+
