@@ -6,14 +6,22 @@
     <p><%= rental.book[:author]%> </p>
     <p><%= rental.start_date %></p>
     <p><%= rental.end_date %></p>
-    <p>Status:<%= rental.status %></p>
+    <p>Status: 
+      <% if rental.status == "Pending"%>
+        <button class="btn btn-warning"><%= rental.status %></button>
+      <% elsif rental.status == "Accepted"%>
+        <button class="btn btn-success"><%= rental.status %></button>
+      <% elsif rental.status == "Rejected"%>
+        <button class="btn btn-danger"><%= rental.status %></button>
+      <% end %>
+    </p>
     <% if rental.status == "Accepted" %>
       <% user_mail = rental.book.user.email %>
-      <div id="contact-owner" class="btn btn-ghost"><a href="mailto:<%= user_mail %>?subject=Hi! I'd like to pick up the book!">Contact owner</a></div>
+      <div id="contact-owner" class="btn btn-outline-dark"><a class="no-deco" href="mailto:<%= user_mail %>?subject=Hi! I'd like to pick up the book!">Contact owner</a></div>
     <% end %>
-    <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental), class:"btn btn-ghost" %> <%= link_to "Delete this rental", 
+    <%= link_to "Edit rental", edit_book_rental_path(rental.book, rental), class:"btn btn-outline-dark" %> <%= link_to "Delete this rental", 
     book_rental_path(rental.book, rental),
     method: :delete,
-    class:"btn btn-ghost"%>
+    class:"btn btn-outline-dark"%>
   <% end  %>
 <% end  %>

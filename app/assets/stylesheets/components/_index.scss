@@ -2,6 +2,7 @@
 @import "alert";
 @import "avatar";
 @import "navbar";
+@import "link";
 
 h1 {
   color: white;
@@ -59,4 +60,8 @@ h1 {
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+.link {
+  text-decoration: none;
 }
