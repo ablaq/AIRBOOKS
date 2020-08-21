@@ -1,6 +1,6 @@
 <h1>My rented books</h1>
 
-<div class="container ">
+<div class="container "style= "margin-bottom: 50px;">
   <div class="row ">
     <% @rentals.each do |rental| %>
     <% if rental.user == current_user %>
@@ -32,11 +32,13 @@
             book_rental_path(rental.book, rental),
             method: :delete,
             class:"btn btn-outline-dark"%>
-          <% end  %>
           </div>
-        <% end %>
         </div>
     </div>
+          <% end  %>
+
+        <% end %>
+
   </div>
 
 </div>
