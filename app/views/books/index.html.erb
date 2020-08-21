@@ -21,22 +21,6 @@
     </div>
   </div>
 
-
- <!--  <div class="card-product d-flex justify-content-between">
-    <% @books.each do |book| %>
-    <% if book.photo.attached?%>
-    <%= cl_image_tag book.photo.key, height: 300, width: 400, crop: :fill %>
-    <% else %>
-    <%= image_tag "four-hour.jpg" %>
-    <% end %>
-    <div class="card-product-infos">
-      <%= link_to book_path(book.id) do %>
-      <h2><%= book.title %></h2>
-      <p><%= book.author%></p>
-      <% end  %>
-    </div>
-    <% end  %>
-  </div> -->
 <div class="container">
   <div class="row">
   <% @books.each do |book| %>
