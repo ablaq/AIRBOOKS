@@ -13,7 +13,7 @@
             <div class="card-body">
               <h5 class="card-title"><%= book.title %></h5>
               <p class="card-text"><%= book.author%></p>
-              <%= link_to "view details",book_path(book.id), class: "btn btn-primary" %>
+              <%= link_to "view details",book_path(book.id), class: "btn btn-outline-dark" %>
             </div>
         </div>
       </div>
@@ -22,9 +22,14 @@
   </div>
 </div>
 
+<<<<<<< HEAD
 
 <div class="container mt-3" style= "margin-bottom: 50px;">
   <h1>Rental requests:</h1>
+=======
+<h1>Rental requests:</h1>
+
+>>>>>>> e20a50e44354af5ece855918caa30f09cbe462f7
 <% @rentals.each do |rental| %>
   <% if rental.book.user == current_user %>
     <h2 class="mt-3"><%= rental.book[:title] %></h2>
