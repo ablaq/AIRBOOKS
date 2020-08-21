@@ -13,18 +13,18 @@
   <p><%= @book.summary %></p>
 
   <% if @book.user == current_user %>
-    <%= link_to "Edit book", edit_book_path, class:"btn btn-ghost"  %>
+    <%= link_to "Edit book", edit_book_path, class:"btn btn-outline-dark"  %>
   <% end %>
 
   <% if @book.user == current_user %>
     <%= link_to "Delete this book",
       book_path(@book),
       method: :delete,
-      data: { confirm: "Are you sure?" }, class:"btn btn-ghost"%> </li>
+      data: { confirm: "Are you sure?" }, class:"btn btn-outline-dark"%> </li>
   <% end %>
 
-  <%= link_to "Back to Library", books_path, class: "btn btn-ghost" %>
+  <%= link_to "Back to Library", books_path, class: "btn btn-outline-dark"%>
 
-  <%= link_to "Rent this book", new_book_rental_path(@book.id), class: "btn btn-ghost" %>
+  <%= link_to "Rent this book", new_book_rental_path(@book.id), class: "btn btn-outline-dark" %>
 
 </div>
